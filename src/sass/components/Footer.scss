@@ -1,0 +1,124 @@
+.footer {
+  position: relative;
+  top: 7rem;
+  background-color: $black1;
+  color: white;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6rem 15rem;
+  @include respond(tab-port) {
+    padding: 6rem 6rem;
+  }
+  @include respond(phone) {
+    padding: 5rem 2rem;
+  }
+
+  &__socials {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6rem;
+    @include respond(phone) {
+      flex-direction: column;
+    }
+
+    .item {
+      line-height: 1.6;
+      cursor: pointer;
+      @include respond(phone) {
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+      }
+      .details {
+        h3 {
+          opacity: 0.6;
+          font-size: 1.6rem;
+          font-weight: 300;
+          margin-top: 1rem;
+        }
+        p {
+          font-size: 1.5rem;
+          @include respond(tab-port) {
+            font-size: 1.3rem;
+          }
+        }
+      }
+
+      svg {
+        @include respond(phone) {
+          margin-right: 2rem;
+        }
+        .fb1 {
+          fill: #3c5a99;
+        }
+        .fb2 {
+          fill: white;
+        }
+        .vimeo1 {
+          fill: rgb(15, 174, 241);
+        }
+        .behance1 {
+          fill: #0058ff;
+        }
+        .insta1 {
+          fill: #d6249f;
+        }
+      }
+    }
+  }
+  &-copyright {
+    opacity: 0.6;
+    font-size: 1.2rem;
+    margin-bottom: 4rem;
+
+    @include respond(phone) {
+      text-align: center;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+  }
+
+  &-nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    ul {
+      display: flex;
+      list-style: none;
+      width: 70%;
+      justify-content: space-between;
+      @include respond(tab-land) {
+        width: 83%;
+      }
+      @include respond(tab-land) {
+        width: 95%;
+      }
+      @include respond(phone) {
+        flex-wrap: wrap;
+        width: 90%;
+        justify-content: center;
+        line-height: 1.6;
+      }
+      li {
+        a {
+          color: white;
+          text-decoration: none;
+          font-size: 1.4rem;
+          transition: 0.3s;
+          @include respond(phone) {
+            margin-right: 2rem;
+            font-size: 1.1rem;
+          }
+          &:hover {
+            color: #007cba;
+          }
+        }
+      }
+    }
+  }
+
+  // #007cba
+}

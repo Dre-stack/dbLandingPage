@@ -1,0 +1,150 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 7rem;
+  width: 100vw;
+  padding: 3rem;
+  display: flex;
+  background-color: $black1;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+
+  &.transparent {
+    background: transparent;
+  }
+  @include respond(phone) {
+    padding: 3rem 1.5rem;
+  }
+
+  &-logo {
+    cursor: pointer;
+    z-index: 5;
+    svg {
+      fill: white;
+      transition: 0.3s;
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .hamburger-menu {
+    display: none;
+    z-index: 5;
+    @include respond(tab-port) {
+      display: block;
+    }
+    &.open {
+      transform: rotate(180deg);
+      .line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .line:nth-child(2) {
+        opacity: 0;
+      }
+      .line:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+      }
+    }
+    .line {
+      width: 3rem;
+      height: 2px;
+      background-color: white;
+      margin: 0.5rem;
+      transition: all 0.3s;
+    }
+  }
+  &-nav-links {
+    @include respond(tab-port) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba($color: $black1, $alpha: 0.9);
+      padding: 9rem 2rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
+    }
+    &.active {
+      visibility: visible;
+      opacity: 1;
+      transition: 0.3s;
+      ul {
+        li {
+          // opacity: 0;
+          animation: fadeMoveUp 0.2s;
+          &:nth-child(2) {
+            animation-delay: 0.1s;
+          }
+          &:nth-child(3) {
+            animation-delay: 0.3s;
+          }
+          &:nth-child(4) {
+            animation-delay: 0.4s;
+          }
+          &:nth-child(5) {
+            animation-delay: 0.5s;
+          }
+        }
+      }
+    }
+    ul {
+      display: flex;
+      list-style: none;
+      @include respond(tab-port) {
+        flex-direction: column;
+        align-items: flex-end;
+        line-height: 2;
+      }
+      li {
+        margin-right: 5rem;
+        @include respond(tab-port) {
+          margin-right: 0;
+        }
+        a {
+          position: relative;
+          color: white;
+          font-weight: 300;
+          font-size: 1.8rem;
+          text-decoration: none;
+          @include respond(tab-port) {
+            font-weight: 500;
+            font-size: 2.5rem;
+          }
+
+          &::after {
+            content: '';
+            width: 0px;
+            height: 3px;
+            background-color: white;
+            position: absolute;
+            bottom: -0.9rem;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: 0.3s;
+          }
+          &:hover {
+            &::after {
+              width: 120%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeMoveUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

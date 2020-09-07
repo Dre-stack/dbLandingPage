@@ -1,0 +1,45 @@
+.btn {
+  background: transparent;
+  padding: 1.2rem 2.5rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+  border: none;
+  a {
+    text-decoration: none;
+  }
+  &:active {
+    outline: 0;
+  }
+
+  &.primary {
+    color: $black1;
+    border: 2px solid $black1;
+    transition: 0.3s;
+    a {
+      color: $black1;
+    }
+    &:hover {
+      background-color: $black1;
+      color: white;
+      a {
+        color: white;
+      }
+    }
+  }
+
+  &.blue {
+    color: $black1;
+    border: 2px solid white;
+    transition: 0.3s;
+    a {
+      color: white;
+    }
+    &:hover {
+      background-color: white;
+      color: rgb(40, 70, 100);
+      a {
+        color: rgb(40, 70, 100);
+      }
+    }
+  }
+}
